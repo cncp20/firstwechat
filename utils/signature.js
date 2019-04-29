@@ -12,7 +12,7 @@ module.exports = (config, reply) => {
             if (sha === signature) {
                 ctx.body = echostr
             } else {
-                ctx.body = "wrong"
+                ctx.body = "wrong";
             }
         } else if (ctx.method === "POST") {
             if (sha !== signature) {
@@ -34,5 +34,6 @@ module.exports = (config, reply) => {
             ctx.type = "application/xml";
             ctx.body = xml;
         }
+        next();
     }
 }
